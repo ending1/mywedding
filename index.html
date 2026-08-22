@@ -428,6 +428,7 @@
   }
 
   .contact-btn:hover { background: var(--black); color: var(--white); border-color: var(--black); }
+  .contact-btn.copied { background: var(--black); color: var(--white); border-color: var(--black); }
 
   .contact-btn svg { width: 14px; height: 14px; }
 
@@ -971,6 +972,9 @@
           <a class="contact-btn" href="sms:01000000000" title="문자">
             <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
           </a>
+          <button type="button" class="contact-btn" title="계좌번호 복사" onclick="copyAccountIcon(this, '1002452502925')">
+            <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+          </button>
         </div>
       </div>
 
@@ -986,6 +990,9 @@
           <a class="contact-btn" href="sms:01043106388" title="문자">
             <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
           </a>
+          <button type="button" class="contact-btn" title="계좌번호 복사" onclick="copyAccountIcon(this, '20717352188482')">
+            <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+          </button>
         </div>
       </div>
 
@@ -1001,6 +1008,9 @@
           <a class="contact-btn" href="sms:01077066388" title="문자">
             <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
           </a>
+          <button type="button" class="contact-btn" title="계좌번호 복사" onclick="copyAccountIcon(this, '20717352150585')">
+            <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+          </button>
         </div>
       </div>
     </div>
@@ -1011,7 +1021,7 @@
       <div class="person-row">
         <div class="person-info">
           <div class="person-role">신부</div>
-          <div class="person-name" id="bride-name">도티홍축</div>
+          <div class="person-name" id="bride-name">도티홍축 <span style="font-family:var(--font-display); font-style:italic; color:var(--gray-600); font-size:12px;">· Đỗ Thị Hồng Chúc</span></div>
         </div>
         <div class="person-contacts">
           <a class="contact-btn" href="tel:01000000000" title="전화">
@@ -1020,6 +1030,9 @@
           <a class="contact-btn" href="sms:01000000000" title="문자">
             <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
           </a>
+          <button type="button" class="contact-btn" title="계좌번호 복사" onclick="copyAccountIcon(this, '1002166828629')">
+            <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+          </button>
         </div>
       </div>
 
@@ -1321,6 +1334,34 @@ function copyAccount(btn, num) {
     showToast('계좌번호가 복사되었습니다');
     setTimeout(() => { btn.textContent = '복사'; btn.classList.remove('copied'); }, 2000);
   });
+}
+
+// 가족 목록의 계좌 아이콘 버튼용 (아이콘을 텍스트로 바꾸지 않고 색만 반전)
+function copyAccountIcon(btn, num) {
+  const done = () => {
+    btn.classList.add('copied');
+    showToast('계좌번호가 복사되었습니다');
+    setTimeout(() => btn.classList.remove('copied'), 1500);
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(num).then(done).catch(() => {
+      const el = document.createElement('textarea');
+      el.value = num;
+      document.body.appendChild(el);
+      el.select();
+      document.execCommand('copy');
+      document.body.removeChild(el);
+      done();
+    });
+  } else {
+    const el = document.createElement('textarea');
+    el.value = num;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+    done();
+  }
 }
 
 function showToast(msg) {
