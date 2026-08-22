@@ -1,7 +1,9 @@
 # Original high-resolution photos (large, unoptimized) — the compressed
-# versions actually used by the site live in img/web/
+# versions actually used by the site live in img2/web/
 img/*.jpg
 !img/web/
+img2/*.jpg
+!img2/web/
 
 # Local tooling config (not part of the site)
 .claude/
