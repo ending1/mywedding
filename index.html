@@ -1303,6 +1303,7 @@ const INFO = {
   weddingTime: "11:30",
   weddingDateKr: "2026. 10. 17. 토요일",
   venueName: "수원 마이어스 웨딩홀",
+  venueHole: "스텔라룸",
   venueAddress: "경기도 수원시 권선구 경수대로 270 터미널동 4층",
   venueTel: "0507-1402-5500",
 };
@@ -1312,7 +1313,7 @@ document.getElementById('groom-name-en').textContent = INFO.groomNameEn;
 document.getElementById('bride-name-en').textContent = INFO.brideNameEn;
 document.getElementById('names-kr').textContent = INFO.groomNameKr + ' · ' + INFO.brideNameKr;
 document.getElementById('wedding-date').textContent = INFO.weddingDateKr + '  ' + INFO.weddingTime;
-document.getElementById('wedding-venue').textContent = INFO.venueName;
+document.getElementById('wedding-venue').textContent = INFO.venueName+ '  ' + INFO.venueHole;
 document.getElementById('venue-name').textContent = INFO.venueName;
 document.getElementById('venue-address').innerHTML = INFO.venueAddress + '<br>Tel. ' + INFO.venueTel;
 document.getElementById('footer-names').textContent = INFO.groomNameEn + ' & ' + INFO.brideNameEn;
