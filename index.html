@@ -313,6 +313,38 @@
     color: var(--gray-400); font-family: var(--font-display); font-size: 12px; letter-spacing: 0.2em;
   }
 
+  /* ── THANK YOU OVERLAY ── */
+  #thanks {
+    position: fixed; inset: 0; z-index: 10001;
+    background: #f3efe6;
+    display: flex; align-items: center; justify-content: center;
+    padding: 20px; overflow-y: auto;
+    transition: opacity 0.7s ease, visibility 0.7s ease;
+  }
+  #thanks.hide { opacity: 0; visibility: hidden; pointer-events: none; }
+  .thanks-card {
+    position: relative; width: 100%; max-width: 560px;
+    background: #faf7f0; border: 1px solid var(--accent);
+    padding: 56px 32px 48px; text-align: center; margin: auto;
+    font-family: var(--font-korean); color: #2a3430;
+  }
+  .thanks-card::before {
+    content: ''; position: absolute; inset: 7px;
+    border: 1px solid var(--accent); pointer-events: none;
+  }
+  .thanks-ring { font-size: 18px; color: var(--accent); margin-bottom: 18px; }
+  .thanks-title { font-size: 34px; font-weight: 400; letter-spacing: 0.08em; margin-bottom: 22px; }
+  .thanks-hr { width: 48px; height: 1px; background: var(--accent); margin: 0 auto 28px; border: none; }
+  .thanks-text { font-size: 14px; font-weight: 300; line-height: 2.1; word-break: keep-all; margin-bottom: 22px; }
+  .thanks-sign { font-size: 17px; font-weight: 400; letter-spacing: 0.1em; margin-top: 26px; }
+  .thanks-skip {
+    margin-top: 30px; padding: 10px 28px; background: none;
+    border: 1px solid var(--accent); color: var(--accent); cursor: pointer;
+    font-family: var(--font-display); font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase;
+    transition: background 0.2s, color 0.2s;
+  }
+  .thanks-skip:hover { background: var(--accent); color: #fff; }
+
   /* ── D-DAY ── */
   #dday {
     padding: 0 28px 48px;
@@ -1002,6 +1034,20 @@
 </style>
 </head>
 <body>
+<!-- THANK YOU OVERLAY -->
+<div id="thanks">
+  <div class="thanks-card">
+    <div class="thanks-ring">&#9901;</div>
+    <h2 class="thanks-title">감사드립니다</h2>
+    <hr class="thanks-hr">
+    <p class="thanks-text">저희 결혼식에 귀한 걸음 해주시고 따뜻한 축하를 보내주셔서 진심으로 감사드립니다. 덕분에 든든한 마음으로 새로운 출발을 할 수 있었습니다.</p>
+    <p class="thanks-text">직접 찾아뵙고 인사드려야 마땅하오나, 글로 먼저 감사의 마음을 전하는 점 헤아려 주시기 바랍니다.</p>
+    <p class="thanks-text">보내주신 사랑 마음에 새기고, 서로 아끼며 행복하게 살겠습니다. 내내 건강하시고 댁내에 평안이 가득하시기를 기원합니다.</p>
+    <div class="thanks-sign">오제윤 &amp; 도티홍축 올림</div>
+    <button type="button" class="thanks-skip" onclick="skipThanks()">Skip ›</button>
+  </div>
+</div>
+
 <!-- INTRO OVERLAY -->
 <div id="intro">
   <div class="intro-line">
@@ -1595,6 +1641,11 @@ function showToast(msg) {
 document.getElementById('intro-groom').textContent = INFO.groomNameEn;
 document.getElementById('intro-bride').textContent = INFO.brideNameEn;
 document.getElementById('intro-date').textContent = INFO.weddingDate.replace(/-/g, ' · ');
+
+function skipThanks() {
+  document.getElementById('thanks').classList.add('hide');
+  document.body.style.overflow = '';
+}
 
 function skipIntro() {
   document.getElementById('intro').classList.add('hide');
