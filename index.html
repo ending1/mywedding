@@ -531,77 +531,6 @@
   .contact-btn:hover { background: var(--black); color: var(--white); border-color: var(--black); }
   .contact-btn.copied { background: var(--black); color: var(--white); border-color: var(--black); }
 
-  /* ── ACCOUNT POPOVER ── */
-  .account-popover {
-    position: fixed;
-    z-index: 1200;
-    background: var(--black);
-    color: var(--white);
-    padding: 16px 18px;
-    width: 240px;
-    font-family: var(--font-body);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    opacity: 0;
-    transform: translateY(6px);
-    pointer-events: none;
-    transition: opacity 0.18s ease, transform 0.18s ease;
-    visibility: hidden;
-  }
-
-  .account-popover.show {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-    visibility: visible;
-  }
-
-  .account-popover::before {
-    content: '';
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background: var(--black);
-    transform: rotate(45deg);
-    left: var(--arrow-left, 20px);
-  }
-
-  .account-popover.arrow-top::before { top: -5px; }
-  .account-popover.arrow-bottom::before { bottom: -5px; }
-
-  .account-popover-holder {
-    font-family: var(--font-display);
-    font-size: 10px;
-    letter-spacing: 0.15em;
-    color: var(--gray-400);
-    margin-bottom: 6px;
-  }
-
-  .account-popover-num {
-    font-size: 13px;
-    letter-spacing: 0.02em;
-    line-height: 1.5;
-    margin-bottom: 14px;
-    word-break: break-all;
-  }
-
-  .account-popover-copy {
-    width: 100%;
-    padding: 10px;
-    background: var(--white);
-    color: var(--black);
-    border: none;
-    font-family: var(--font-display);
-    font-size: 11px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: opacity 0.2s, background 0.2s, color 0.2s;
-  }
-
-  .account-popover-copy:hover { opacity: 0.8; }
-  .account-popover-copy.copied { background: var(--accent); color: var(--white); }
-
-  .contact-btn svg { width: 14px; height: 14px; }
 
   /* ── GALLERY ── */
   #gallery {
@@ -766,98 +695,6 @@
     margin-bottom: 4px;
   }
 
-  /* ── ACCOUNT ── */
-  #account {
-    padding: 56px 28px;
-    background: var(--gray-100);
-  }
-
-  .account-side {
-    margin-bottom: 28px;
-  }
-
-  .account-toggle {
-    width: 100%;
-    padding: 16px;
-    background: var(--white);
-    border: 1px solid var(--gray-200);
-    font-family: var(--font-korean);
-    font-size: 14px;
-    font-weight: 300;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    text-align: left;
-    color: var(--black);
-    transition: background 0.2s;
-  }
-
-  .account-toggle:hover { background: var(--black); color: var(--white); }
-
-  .account-toggle .chevron {
-    transition: transform 0.3s;
-    font-size: 10px;
-  }
-
-  .account-toggle.open .chevron { transform: rotate(180deg); }
-
-  .account-content {
-    display: none;
-    border: 1px solid var(--gray-200);
-    border-top: none;
-    background: var(--white);
-    padding: 20px 16px;
-  }
-
-  .account-content.open { display: block; }
-
-  .account-item {
-    padding: 12px 0;
-    border-bottom: 1px solid var(--gray-100);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 8px;
-  }
-
-  .account-item:last-child { border-bottom: none; }
-
-  .account-info {}
-
-  .account-role {
-    font-size: 10px;
-    color: var(--gray-400);
-    letter-spacing: 0.1em;
-    margin-bottom: 2px;
-  }
-
-  .account-name {
-    font-family: var(--font-korean);
-    font-size: 14px;
-    margin-bottom: 2px;
-  }
-
-  .account-num {
-    font-size: 11px;
-    color: var(--gray-600);
-    letter-spacing: 0.05em;
-  }
-
-  .copy-btn {
-    padding: 8px 12px;
-    border: 1px solid var(--gray-200);
-    background: var(--white);
-    font-size: 11px;
-    cursor: pointer;
-    white-space: nowrap;
-    transition: background 0.2s, color 0.2s;
-    font-family: var(--font-body);
-    color: var(--black);
-  }
-
-  .copy-btn:hover { background: var(--black); color: var(--white); border-color: var(--black); }
-  .copy-btn.copied { background: var(--black); color: var(--white); border-color: var(--black); }
 
   /* ── FOOTER ── */
   footer {
@@ -929,16 +766,6 @@
     #people .section-label { grid-column: 1 / -1; }
     #people .people-side { margin-bottom: 0; }
 
-    /* ACCOUNT: two columns side by side */
-    #account {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      column-gap: 32px;
-      align-items: start;
-      padding: 64px 48px;
-    }
-    #account .section-label { grid-column: 1 / -1; }
-    #account .account-side { margin-bottom: 0; }
 
     #invitation, #location, #gallery {
       padding-left: 48px;
@@ -993,7 +820,7 @@
     #invitation .section-label { grid-column: 1 / -1; }
     .invitation-kr { margin-bottom: 0; }
 
-    #people, #account {
+    #people {
       padding-left: 72px;
       padding-right: 72px;
     }
@@ -1157,11 +984,6 @@
           <a class="contact-btn" href="sms:01000000000" title="문자">
             <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
           </a>
-          <button type="button" class="contact-btn" title="계좌번호 보기"
-            onclick="showAccountPopover(this)"
-            data-holder="신랑 오제윤" data-bank="우리은행 1002-452-502925" data-copy="1002452502925">
-            <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-          </button>
         </div>
       </div>
 
@@ -1177,11 +999,6 @@
           <a class="contact-btn" href="sms:01000000000" title="문자">
             <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
           </a>
-          <button type="button" class="contact-btn" title="계좌번호 보기"
-            onclick="showAccountPopover(this)"
-            data-holder="신랑 아버지 오광현" data-bank="농협 207173-52-188482" data-copy="20717352188482">
-            <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-          </button>
         </div>
       </div>
 
@@ -1197,11 +1014,6 @@
           <a class="contact-btn" href="sms:01000000000" title="문자">
             <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
           </a>
-          <button type="button" class="contact-btn" title="계좌번호 보기"
-            onclick="showAccountPopover(this)"
-            data-holder="신랑 어머니 이순옥" data-bank="농협 207173-52-150585" data-copy="20717352150585">
-            <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-          </button>
         </div>
       </div>
     </div>
@@ -1221,11 +1033,6 @@
           <a class="contact-btn" href="sms:01000000000" title="문자">
             <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
           </a>
-          <button type="button" class="contact-btn" title="계좌번호 보기"
-            onclick="showAccountPopover(this)"
-            data-holder="신부 도티홍축 (DO THI HONG CHUC)" data-bank="우리은행 1002-166-828629" data-copy="1002166828629">
-            <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-          </button>
         </div>
       </div>
 
@@ -1331,63 +1138,6 @@
     </div>
   </section>
 
-  <hr class="divider">
-
-  <!-- ACCOUNT -->
-  <section id="account">
-    <div class="section-label">Gift</div>
-
-    <div class="account-side">
-      <button class="account-toggle" onclick="toggleAccount(this)">
-        <span>신랑 측 계좌번호</span>
-        <span class="chevron">▼</span>
-      </button>
-      <div class="account-content">
-        <div class="account-item">
-          <div class="account-info">
-            <div class="account-role">신랑</div>
-            <div class="account-name" id="groom-name-acct">오제윤</div>
-            <div class="account-num">우리은행 1002-452-502925</div>
-          </div>
-          <button class="copy-btn" onclick="copyAccount(this, '1002452502925')">복사</button>
-        </div>
-        <div class="account-item">
-          <div class="account-info">
-            <div class="account-role">신랑 아버지</div>
-            <div class="account-name">오광현</div>
-            <div class="account-num">농협 207173-52-188482</div>
-          </div>
-          <button class="copy-btn" onclick="copyAccount(this, '20717352188482')">복사</button>
-        </div>
-        <div class="account-item">
-          <div class="account-info">
-            <div class="account-role">신랑 어머니</div>
-            <div class="account-name">이순옥</div>
-            <div class="account-num">농협 207173-52-150585</div>
-          </div>
-          <button class="copy-btn" onclick="copyAccount(this, '20717352150585')">복사</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="account-side">
-      <button class="account-toggle" onclick="toggleAccount(this)">
-        <span>신부 측 계좌번호</span>
-        <span class="chevron">▼</span>
-      </button>
-      <div class="account-content">
-        <div class="account-item">
-          <div class="account-info">
-            <div class="account-role">신부</div>
-            <div class="account-name" id="bride-name-acct">도티홍축</div>
-            <div class="account-num">우리은행 1002-166-828629 (DO THI HONG CHUC)</div>
-          </div>
-          <button class="copy-btn" onclick="copyAccount(this, '1002166828629')">복사</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- FOOTER -->
   <footer>
     <div class="footer-names" id="footer-names">Groom & Bride</div>
@@ -1406,14 +1156,7 @@
 </div>
 
 <!-- TOAST -->
-<div class="toast" id="toast">계좌번호가 복사되었습니다</div>
-
-<!-- ACCOUNT POPOVER -->
-<div class="account-popover" id="accountPopover">
-  <div class="account-popover-holder" id="accPopHolder"></div>
-  <div class="account-popover-num" id="accPopNum"></div>
-  <button type="button" class="account-popover-copy" id="accPopCopyBtn">번호 복사</button>
-</div>
+<div class="toast" id="toast"></div>
 
 <script>
 // ────────────────────────────────────────────
@@ -1512,121 +1255,6 @@ track.addEventListener('touchend', e => {
   const dx = e.changedTouches[0].clientX - touchStartX;
   if (Math.abs(dx) > 40) { goTo(dx < 0 ? current + 1 : current - 1); resetAuto(); }
 });
-
-// ────────────────────────────────────────────
-// ACCOUNT TOGGLE
-// ────────────────────────────────────────────
-function toggleAccount(btn) {
-  btn.classList.toggle('open');
-  const content = btn.nextElementSibling;
-  content.classList.toggle('open');
-}
-
-// ────────────────────────────────────────────
-// COPY ACCOUNT
-// ────────────────────────────────────────────
-function copyAccount(btn, num) {
-  navigator.clipboard.writeText(num).then(() => {
-    btn.textContent = '✓';
-    btn.classList.add('copied');
-    showToast('계좌번호가 복사되었습니다');
-    setTimeout(() => { btn.textContent = '복사'; btn.classList.remove('copied'); }, 2000);
-  }).catch(() => {
-    // fallback
-    const el = document.createElement('textarea');
-    el.value = num;
-    document.body.appendChild(el);
-    el.select();
-    document.execCommand('copy');
-    document.body.removeChild(el);
-    btn.textContent = '✓';
-    btn.classList.add('copied');
-    showToast('계좌번호가 복사되었습니다');
-    setTimeout(() => { btn.textContent = '복사'; btn.classList.remove('copied'); }, 2000);
-  });
-}
-
-// ────────────────────────────────────────────
-// 가족 목록의 계좌 아이콘 → 툴팁형 팝오버로 계좌번호 표시 후 복사
-// ────────────────────────────────────────────
-const accountPopover = document.getElementById('accountPopover');
-const accPopHolder = document.getElementById('accPopHolder');
-const accPopNum = document.getElementById('accPopNum');
-const accPopCopyBtn = document.getElementById('accPopCopyBtn');
-let accountPopoverBtn = null;
-
-function showAccountPopover(btn) {
-  const reopening = accountPopoverBtn === btn && accountPopover.classList.contains('show');
-  hideAccountPopover();
-  if (reopening) return; // 같은 아이콘을 다시 누르면 닫기만 함
-
-  accountPopoverBtn = btn;
-  accPopHolder.textContent = btn.dataset.holder || '';
-  accPopNum.textContent = btn.dataset.bank || '';
-  accPopCopyBtn.textContent = '번호 복사';
-  accPopCopyBtn.classList.remove('copied');
-  accPopCopyBtn.onclick = (e) => {
-    e.stopPropagation();
-    copyAccountNumber(btn.dataset.copy || '', accPopCopyBtn);
-  };
-
-  const rect = btn.getBoundingClientRect();
-  const popRect = accountPopover.getBoundingClientRect();
-
-  let top = rect.bottom + 12;
-  let arrowTop = true;
-  if (top + popRect.height > window.innerHeight - 12) {
-    top = rect.top - popRect.height - 12;
-    arrowTop = false;
-  }
-  let left = rect.left + rect.width / 2 - popRect.width / 2;
-  left = Math.max(12, Math.min(left, window.innerWidth - popRect.width - 12));
-
-  accountPopover.style.top = top + 'px';
-  accountPopover.style.left = left + 'px';
-  accountPopover.style.setProperty('--arrow-left', (rect.left + rect.width / 2 - left - 5) + 'px');
-  accountPopover.classList.toggle('arrow-top', arrowTop);
-  accountPopover.classList.toggle('arrow-bottom', !arrowTop);
-  accountPopover.classList.add('show');
-}
-
-function hideAccountPopover() {
-  accountPopover.classList.remove('show');
-  accountPopoverBtn = null;
-}
-
-document.addEventListener('click', (e) => {
-  if (!accountPopover.classList.contains('show')) return;
-  if (accountPopover.contains(e.target)) return;
-  if (accountPopoverBtn && accountPopoverBtn.contains(e.target)) return;
-  hideAccountPopover();
-});
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape') hideAccountPopover(); });
-window.addEventListener('scroll', hideAccountPopover, { passive: true });
-window.addEventListener('resize', hideAccountPopover);
-
-function copyAccountNumber(num, btn) {
-  const done = () => {
-    btn.textContent = '복사됨 ✓';
-    btn.classList.add('copied');
-    showToast('계좌번호가 복사되었습니다');
-    setTimeout(() => { btn.textContent = '번호 복사'; btn.classList.remove('copied'); }, 1500);
-  };
-  const fallback = () => {
-    const el = document.createElement('textarea');
-    el.value = num;
-    document.body.appendChild(el);
-    el.select();
-    document.execCommand('copy');
-    document.body.removeChild(el);
-    done();
-  };
-  if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(num).then(done).catch(fallback);
-  } else {
-    fallback();
-  }
-}
 
 function showToast(msg) {
   const t = document.getElementById('toast');
